@@ -9,19 +9,7 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-        }
-    });
-}, observerOptions);
 
 // Initialize animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
