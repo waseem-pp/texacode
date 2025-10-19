@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiflomedia - Client Gallery</title>
+  <link rel="icon" href="Images/texacode.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0c0f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Portfolio */
+    .portfolio { padding: 50px 0 60px; background: #0a0c0f; }
+    .section-header { text-align: center; margin-bottom: 2rem; }
+    .section-title { font-size: 2.5rem; font-weight: 700; }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 0 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      text-decoration: none;
+    }
+    .portfolio-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .portfolio-image {
+      width: 100%;
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0a0c0f;
+      text-align: center;
+      color: #9ca3af;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-image { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="portfolio">
+    <div class="section-header">
+      <h2 class="section-title">Professional CV Design</h2>
+    </div>
+    <div class="portfolio-grid" id="portfolio-grid"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Texacode. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const portfolioData = [
+      { 
+        image: "Images/wip.jpg",
+        name: "Texacode Website",
+        link: "https://texacode.netlify.app" 
+      },
+      { 
+        image: "Images/wip.jpg",
+        name: "Hiflomedia Website",
+        link: "https://hiflomedia.netlify.app"
+      },
+      { 
+        image: "Images/wip.jpg",
+        name: "Another Design",
+        link: "https://example.com"
+      }
+    ];
+
+    const portfolioGrid = document.getElementById("portfolio-grid");
+
+    portfolioData.forEach(item => {
+      const a = document.createElement("a");
+      a.className = "portfolio-item";
+      a.href = item.link;
+      a.target = "_blank"; // opens in new tab
+      a.innerHTML = `
+        <div class="portfolio-image" style="background-image: url('${item.image}')"></div>
+      `;
+      portfolioGrid.appendChild(a);
+    });
+  </script>
+</body>
+</html>
